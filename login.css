@@ -1,0 +1,28 @@
+html{
+  background-image: url('https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-3798.jpg');
+ background-size: cover;
+}
+.parallax{
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start;
+  align-content: flex-start;
+}
+#logo{
+  width:250px;
+  height: auto;
+}
+footer {
+  position:absolute; 
+  bottom:0; 
+  width:92%; 
+  height:auto; 
+  margin-top: 150px;
+  text-align: center;
+  padding: 50px;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  font-size: 1em;
+  font-family: monospace;
+}
+
