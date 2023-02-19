@@ -12,6 +12,7 @@ else if(type == 2){
 else{
   accType = "BUSINESS";
 }
+alert("Success!");
 }
 
 
@@ -42,4 +43,5 @@ const options = {
 
   const responseObj = JSON.parse(response);
 
-  console.log(responseObj['id'])
+  console.log(responseObj['id']);
+

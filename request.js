@@ -4,6 +4,7 @@ let submit=()=>{
   var country = document.getElementById("country").value;
 var amount = document.getElementById("amt").value;
 var description = document.getElementById("desc").value;
+  alert("Success!");
 }
 
 const baseURL = "https://sandbox.checkbook.io/v3/";
