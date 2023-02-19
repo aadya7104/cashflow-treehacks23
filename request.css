@@ -55,7 +55,10 @@ input[type=submit]:hover {
   background-color: #3c3c86;
   color: white;
 }
-
+input[type=submit]:focus {
+  background-color: gray;
+  color: white;
+}
 .form1 {
   border-radius: 5px;
   margin:20px;
