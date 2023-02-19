@@ -1,19 +1,16 @@
 let submit=()=>{
   var details = document.getElementById("detail").value;
-  var name = document.getElementById("fsname").value;
-  var scountry = document.getElementById("scountry").value;
- var rcountry = document.getElementById("rcountry").value; 
-var amount = document.getElementById("amt").value;
+  var recipientName = document.getElementById("fsname").value;
+  var senderCountry = document.getElementById("scountry").value;
+  var receiverCountry = document.getElementById("rcountry").value;
+  var sentAmount = document.getElementById("amt").value;
   alert("Success!");
 }
 
-
-
-
 const fromCurrencyCode = undefined;
 const toCurrencyCode = undefined;
-const fromCountry = "United Kingdom";
-const toCountry = "United States of America"
+const fromCountry = senderCountry;
+const toCountry = receiverCountry;
 // converting the name of the country to 3 digit currency code
 // this switch statement is for the country from which the transfer originates
 
@@ -53,35 +50,58 @@ switch (toCountry) {
     case "South Africa": toCurrencyCode = "ZAR";
 }
 
+const usdHolder = "USD";
+// EXCHANGE RATE API - Sender Currency to USD
 
 
+var myHeaders = new Headers();
+myHeaders.append("apikey", "maS5bD8MSB8HDvx37uhRmXodJyHvVdOr");
 
-const baseURL = "https://sandbox.checkbook.io/v3/";
-
-const clientID = "62ead2bf8dee4a26bdfb0df57fc61f6c";
-const key = "db4d9e901d69886bb4bd8ee1b9b0689e"
-const secret = "56b3b7e94035953252fcb1cc0c97e112"
-
-const auth = key + ":" + secret;
-
-// add a bank account 
-
-const options = {
-  method: 'POST',
-  headers: {
-    accept: 'application/json',
-    'content-type': 'application/json',
-    Authorization: 'd6aa2703655f4ba2af2a56202961ca86:dXbCgzYBMibj8ZwuQMd2NXr6rtvjZ8'
-  },
-  body: JSON.stringify({
-    recipient: details,
-    name: name,
-    amount: sentAmount,
-    description: 'Test Payment'
-  })
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow',
+  headers: myHeaders
 };
 
-fetch('https://demo.checkbook.io/v3/check/digital', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+// Define a variable to store the converted amount
+var convertedAmount = undefined;
+
+fetch("https://api.apilayer.com/exchangerates_data/convert?to={usdHolder}&from={fromCountry}&amount={sentAmount}", requestOptions)
+  .then(response => response.text())
+  .then(result => {
+    var tempResponse = JSON.parse(result);
+    convertedAmount = tempResponse["result"];
+    //console.log(convertedAmount); // Output: 10284.69306
+  })
+  .catch(error => console.log('error', error))
+  .finally(() => {
+    console.log('HTTP request is complete'); // This code will execute once the request is complete
+    console.log(convertedAmount); // Output: undefined or the converted amount value
+
+    const baseURL = "https://sandbox.checkbook.io/v3/";
+
+    const clientID = "62ead2bf8dee4a26bdfb0df57fc61f6c";
+    const key = "db4d9e901d69886bb4bd8ee1b9b0689e"
+    const secret = "56b3b7e94035953252fcb1cc0c97e112"
+    
+    const auth = key + ":" + secret;
+    
+    const options = {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        Authorization: auth
+    },
+    body: JSON.stringify({
+      recipient: details,
+      name: recipientName,
+      amount: convertedAmount
+    })
+    };
+
+    fetch(baseURL + "check/digital", options)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .catch(err => console.error(err));
+      });
