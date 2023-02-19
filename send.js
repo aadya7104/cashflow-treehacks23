@@ -1,7 +1,8 @@
 let submit=()=>{
   var details = document.getElementById("detail").value;
   var recipientName = document.getElementById("fsname").value;
-  var country = document.getElementById("country").value;
+  var senderCountry = document.getElementById("scountry").value;
+var receiverCountry = document.getElementById("rcountry").value;
 var sentAmount = document.getElementById("amt").value;
 }
 
