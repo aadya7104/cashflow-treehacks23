@@ -1,3 +1,4 @@
+
 *{
   margin: 0px;
 }
@@ -17,62 +18,17 @@ html{
   height: auto;
 }
 footer {
-
+  position:absolute; 
+  bottom:0; 
   width:92%; 
   height:auto; 
-  margin-top: 100px;
+  margin-top: 150px;
   text-align: center;
   padding: 50px;
   background-color: white;
   color: rgb(0, 0, 0);
   font-size: 1em;
   font-family: monospace;
-}
-input[type=text], select {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=submit] {
-  width: 100%;
-  background-color: #f59ec1;
-  color: black;
-  padding: 14px 10px;
-  margin-top: 8px ;
-  margin-bottom: 30px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family:monospace;
-}
-
-input[type=submit]:hover {
-  background-color: #3c3c86;
-  color: white;
-}
-
-.form1 {
-  border-radius: 5px;
-  margin:20px;
-  display: flex;
-  justify-content: center;
-}
-form{
-    width: 44%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-}
-label{
-  font-family: monospace;
-}
-submit{
-  font-family: 'Cormorant Garamond', serif;;
 }
 @media (max-width:500px) {
 .footer{
@@ -117,8 +73,19 @@ li{
   flex: 1;
   margin: 0;
 }
-#ask{
-  text-align: center;
- font-family: 'Cormorant Garamond', serif;
-  
+h1{
+ font-family: 'Libre Baskerville', serif;
+ text-align: center;
+ font-size: 4em;
 }
+#intro{
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  font-size: 20px;
+  padding:15px;
+}
+/*background-image:{
+  opacity:0.5;
+  width: 100px;
+  height: auto;
+}url('money.png');*/
