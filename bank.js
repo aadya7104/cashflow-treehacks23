@@ -1,6 +1,6 @@
 let submit=()=>{
-  var routingNumber= document.getElementById("routing").value;
-  var accountNumber = document.getElementById("account").value;
+  var routing= document.getElementById("routing").value;
+  var account = document.getElementById("account").value;
   var type = document.getElementById("type").value;
 var accType = "";
 if(type == 1){
@@ -32,7 +32,7 @@ const options = {
       'content-type': 'application/json',
       Authorization: auth
     },
-    body: JSON.stringify({routing: routingNumber, account: accountNumber, type: accType})
+    body: JSON.stringify({routing: routing, account: account, type: accType})
   };
   
   fetch(baseURL+"bank", options)
@@ -40,4 +40,6 @@ const options = {
     .then(response => console.log(response))
     .catch(err => console.error(err));
 
-  console.log(response['id'])
+  const responseObj = JSON.parse(response);
+
+  console.log(responseObj['id'])

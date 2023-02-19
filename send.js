@@ -1,9 +1,8 @@
 let submit=()=>{
   var details = document.getElementById("detail").value;
-  var recipientName = document.getElementById("fsname").value;
-  var senderCountry = document.getElementById("scountry").value;
-var receiverCountry = document.getElementById("rcountry").value;
-var sentAmount = document.getElementById("amt").value;
+  var name = document.getElementById("fsname").value;
+  var type = document.getElementById("country").value;
+var amount = document.getElementById("amt").value;
 }
 
 
@@ -74,7 +73,7 @@ const options = {
   },
   body: JSON.stringify({
     recipient: details,
-    name: recipientName,
+    name: name,
     amount: sentAmount,
     description: 'Test Payment'
   })
