@@ -7,7 +7,7 @@ html{
 }
 .parallax{
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-self: flex-start;
   align-content: flex-start;
 }
@@ -16,11 +16,10 @@ html{
   height: auto;
 }
 footer {
-   position:absolute; 
-  bottom:0; 
+
   width:92%; 
   height:auto; 
-  margin-top: 150px;
+  margin-top: 100px;
   text-align: center;
   padding: 50px;
   background-color: white;
@@ -28,4 +27,49 @@ footer {
   font-size: 1em;
   font-family: monospace;
 }
+input[type=text], select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
+input[type=submit] {
+  width: 100%;
+  background-color: #f59ec1;
+  color: black;
+  padding: 14px 10px;
+  margin-top: 8px ;
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family:monospace;
+}
+
+input[type=submit]:hover {
+  background-color: #3c3c86;
+  color: white;
+}
+
+.form1 {
+  border-radius: 5px;
+  margin:20px;
+  display: flex;
+  justify-content: center;
+}
+form{
+    width: 44%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+label{
+  font-family: monospace;
+}
+submit{
+  font-family: 'Cormorant Garamond', serif;;
+}
