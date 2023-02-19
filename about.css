@@ -73,14 +73,15 @@ li{
   flex: 1;
   margin: 0;
 }
-h1{
+#title{
  font-family: 'Libre Baskerville', serif;
- text-align: center;
- font-size: 4em;
+ text-align: left;
+ font-size: 2em;
+ margin: 5px;
 }
 #intro{
   font-family: 'Cormorant Garamond', serif;
-  text-align: center;
+  text-align: left;
   font-size: 20px;
   padding:15px;
 }
